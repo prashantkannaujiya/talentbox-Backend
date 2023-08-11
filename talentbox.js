@@ -137,9 +137,14 @@ app.post('/signup',async(req,res)=>{
   })
   app.get('/auth/:token',(req,res)=>{ var tken=req.params.token;
     console.log(tken);
+    try{
     var ds=jwt.verify(req.params.token,'Vishnu');
-    console.log(ds)
     res.send({message:'approved',data:ds});
+    console.log(ds)
+    }
+    catch(err){res.send({message:'error'})}
+   
+
   })
 const port=process.env.PORT || 2100;
 app.listen(port,()=>{console.log('server runnning on 2100')})
