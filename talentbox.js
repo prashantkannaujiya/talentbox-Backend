@@ -21,8 +21,7 @@ const client = new MongoClient(uri);
       db=client.db("talent");
      // 
       console.log("Pinged your deployment. You successfully connected to MongoDB!");
-      var k=await db.collection('test').insertOne({owner:'Prashant'});
-      console.log(k)
+      
     } finally {
       // Ensures that the client will close when you finish/error
       //await client.close();
